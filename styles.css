@@ -1,0 +1,570 @@
+@font-face {
+    font-family: 'grinch';
+    src:url('grinch.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ace';
+    src: url('ace.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Starjedi';
+    src:url('Starjedi.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --main-font: 'grinch', sans-serif;
+    --dark-font: 'ace', sans-serif;
+    --light-dark-button-font: 'Starjedi', sans-serif;
+    --light-color: #42b65f;
+    --green-color: #b6fc09;
+    --dark-color: #FF000d;
+    --left-button-hover-color: #b6fc09;
+    --left-button-color:  #42b65f;
+    --right-button-hover-color: #FF000d;
+    --right-button-color: #b5081c;
+}
+
+
+/* Start Global----------------------------------------------------------------*/
+body {
+    margin: 0;
+    padding: 0;
+    font-family:'grinch', sans-serif;
+    overflow: hidden;
+}
+
+section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    background: #000;
+}
+
+section .screen {
+    position: relative;
+    flex-grow: 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+    transition: 1s;
+}
+
+section:hover .screen {
+    opacity: 0.2;
+}
+
+section .screen:hover {
+    flex-grow: 5;
+    opacity: 1;
+}
+
+section .screen:nth-child(1) {
+    background: url(images/sitebg-light.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+section .screen:nth-child(2) {
+    background: url(images/sitebg-green.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+section .screen:nth-child(3) {
+    background: url(images/sitebg-dark.jpg) no-repeat center;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+/*Togglers for screens---------------------------------------------------------*/
+section .menu-toggler {
+    position: fixed;
+    top: 5rem;
+    right: 5rem;
+    width: 4rem;
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1500;
+    transition: transform 650ms ease-out;
+}
+
+section .menu-toggler .bar:hover {
+    transform: scale(1.1);
+    animation: step-end;
+}
+
+.screen.one .bar {
+    background: linear-gradient(to right, var(--light-color), #2f2f2f);
+    width: 100%;
+    height: 3px;
+    border-radius: .8rem;
+    animation: pulse 3s infinite;
+}
+
+.one .bar.half {
+    width: 50%;
+}
+
+.one .bar.start {
+    transform-origin: right;
+    transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+}
+
+.one .bar.end {
+    align-self: flex-end;
+    transform-origin: left;
+    transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+}
+
+.screen.two .bar {
+    background: linear-gradient(to right, var(--green-color), #2f2f2f);
+    width: 100%;
+    height: 3px;
+    border-radius: .8rem;
+    animation: pulse 3s infinite;
+}
+
+.two .bar.half {
+    width: 50%;
+}
+
+.two .bar.start {
+    transform-origin: right;
+    transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+}
+
+.two .bar.end {
+    align-self: flex-end;
+    transform-origin: left;
+    transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+}
+
+.screen.thre .bar {
+    background: linear-gradient(to right, var(--dark-color), #2f2f2f);
+    width: 100%;
+    height: 3px;
+    border-radius: .8rem;
+    animation: pulse-dark 3s infinite;
+}
+
+.thre .bar.half {
+    width: 50%;
+}
+
+.thre .bar.start {
+    transform-origin: right;
+    transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+}
+
+.thre .bar.end {
+    align-self: flex-end;
+    transform-origin: left;
+    transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+}
+
+
+/*Content for screens----------------------------------------------------------*/
+section .screen .content {
+    position: absolute;
+    left: 2%;
+    width: 100%;
+    height: auto;
+    background: transparent;
+    color: var(--light-color);
+    padding: 40px;
+    box-sizing: border-box;
+    transform: translateX(100%);
+    transition: 0.5s;
+    text-align: center;
+}
+
+section .screen:hover .content {
+    transform: translateX(0);
+    transition-delay: 0.8s;
+}
+
+section .screen:nth-child(2) .content {
+    color: var(--green-color);
+}
+
+section .screen:nth-child(3) .content {
+    color: var(--dark-color);
+    font-family: var(--dark-font);
+}
+
+section .screen .content h2 {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 4rem;
+    background: linear-gradient(to top, var(--green-color), var(--light-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;
+}
+
+section .screen:nth-child(2) .content h2 {
+    background: linear-gradient(to top, var(--green-color), #040404);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;
+}
+
+section .screen:nth-child(3) .content h2 {
+    background: linear-gradient(to top, var(--dark-color), #040404);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;
+}
+
+section .screen .content h6 {
+    content: attr(data-text);
+    border-right: 1px solid;
+    font-family: sans-serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #727171;
+    transition: color 650ms;
+    opacity: .6;
+}
+
+.line {
+    width: 21em;
+    position: relative;
+    margin: 1rem auto;
+    border-right: 2px solid #727171;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);
+}
+
+section .screen:hover .content .anim-type {
+    animation: type 4s steps(40) 1s 1 normal both,
+    blinkTextCursor 1s steps(40) infinite normal;
+}
+
+@keyframes type {
+    from {
+        width: 0;
+    }
+    to {
+        width: 21em;
+    }
+}
+
+@keyframes blinkTextCursor {
+    from {
+        border-right-color: #727171;
+    }
+    to {
+        border-right-color: transparent;
+    }
+}
+
+.content .button {
+    margin-top: 2rem;
+}
+
+@keyframes pulse {
+    0%{
+        box-shadow: 0 0 0 0 #b7fc09;
+    }
+    70%{
+        box-shadow: 0 0 0 1.2rem #b7fc0900;
+    }
+    100%{
+        box-shadow: 0 0 0 0 #b7fc0900;
+    }
+}
+
+@keyframes pulse-dark {
+    0%{
+        box-shadow: 0 0 0 0 var(--dark-color);
+    }
+    70%{
+        box-shadow: 0 0 0 1.2rem #b7fc0900;
+    }
+    100%{
+        box-shadow: 0 0 0 0 #b7fc0900;
+    }
+}
+
+/*Light Button-----------------------------------------------------------------*/
+.content.light .button {
+    font-family: var(--light-dark-button-font);
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 45%;
+    height: 2.5rem;
+    padding-top: 1.3rem;
+    width: 15rem;
+    text-align: center;
+    font-size: 1.7rem;
+    text-decoration: none;
+    color: var(--left-button-color);
+    border: 2px solid var(--left-button-color);
+    padding: .5rem 1.5rem;
+    transition: all .5s;
+    transform: translateX(-50%);
+    animation: pulse 3s infinite;
+}
+
+.content.light .button::before,
+.content.light .button::after {
+    content: "";
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-style: solid;
+    border-color: var(--left-button-color);
+    transition: all 1s;
+}
+
+.content.light .button::before {
+    top: -1rem;
+    left: -1rem;
+    border-width: 2px 0 0 2px;
+}
+
+.content.light .button::after {
+    bottom: -1rem;
+    right: -1rem;
+    border-width: 0 2px 2px 0;
+}
+
+.content.light .button:hover::before,
+.content.light .button:hover::after {
+    width: calc(100% + 1.85rem);
+    height: calc(100% + 1.85rem);
+    border-color: var(--left-button-hover-color);
+}
+
+.content.light .button:hover {
+    color: #b5b5b5;
+    background-color: var(--left-button-hover-color);
+    border-color: var(--left-button-hover-color);
+    animation: step-end;
+}
+
+/*Green Button-----------------------------------------------------------------*/
+.content.green .button {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 45%;
+    height: 2.5rem;
+    padding-top: 1.3rem;
+    width: 15rem;
+    text-align: center;
+    font-size: 2.1rem;
+    text-decoration: none;
+    color: var(--left-button-color);
+    border: 2px solid var(--left-button-color);
+    padding: .5rem 1.5rem;
+    transition: all .5s;
+    transform: translateX(-50%);
+    animation: pulse 3s infinite;
+}
+
+.content.green .button::before,
+.content.green .button::after {
+    content: "";
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-style: solid;
+    border-color: var(--left-button-color);
+    transition: all 1s;
+}
+
+.content.green .button::before {
+    top: -1rem;
+    left: -1rem;
+    border-width: 2px 0 0 2px;
+}
+
+.content.green .button::after {
+    bottom: -1rem;
+    right: -1rem;
+    border-width: 0 2px 2px 0;
+}
+
+.content.green .button:hover::before,
+.content.green .button:hover::after {
+    width: calc(100% + 1.85rem);
+    height: calc(100% + 1.85rem);
+    border-color: var(--left-button-hover-color);
+}
+
+.content.green .button:hover {
+    color: #040404;
+    background-color: var(--left-button-hover-color);
+    border-color: var(--left-button-hover-color);
+    animation: step-end;
+}
+
+/*Dark button------------------------------------------------------------------*/
+.content.dark .button {
+    font-family: var(--light-dark-button-font);
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 45%;
+    height: 2.5rem;
+    padding-top: 1.3rem;
+    width: 15rem;
+    text-align: center;
+    font-size: 1.7rem;
+    text-decoration: none;
+    color: var(--right-button-color);
+    border: 2px solid var(--right-button-color);
+    padding: .5rem 1.5rem;
+    transition: all .5s;
+    transform: translateX(-50%);
+    animation: pulse-dark 3s infinite;
+}
+
+.content.dark .button::before,
+.content.dark .button::after {
+    content: "";
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-style: solid;
+    border-color: var(--right-button-color);
+    transition: all 1s;
+}
+
+.content.dark .button::before {
+    top: -1rem;
+    left: -1rem;
+    border-width: 2px 0 0 2px;
+}
+
+.content.dark .button::after {
+    bottom: -1rem;
+    right: -1rem;
+    border-width: 0 2px 2px 0;
+}
+
+.content.dark .button:hover::before,
+.content.dark .button:hover::after {
+    width: calc(100% + 1.85rem);
+    height: calc(100% + 1.85rem);
+    border-color: var(--right-button-hover-color);
+}
+
+.content.dark .button:hover {
+    color: #040404;
+    background-color: var(--right-button-hover-color);
+    border-color: var(--right-button-hover-color);
+    animation: step-end;
+}
+
+
+@media screen and (max-width: 1400px) {
+    section .menu-toggler {
+        top: 2rem;
+        right: 2rem;
+        width: 3rem;
+        height: 2rem;
+    }
+
+    section .screen .content h2 {
+        font-size: 3rem;
+    }
+
+    section .screen .content h6 {
+        font-size: 1.2rem;
+        font-weight: 200;
+    }
+
+    .content.light .button {
+        width: 7.5rem;
+        height: 60%;
+        font-size: 0.9rem;
+    }
+
+    .content.green .button {
+        width:7.5rem;
+        height: 60%;
+        font-size: 1.3rem;
+    }
+
+    .content.dark .button {
+        width: 7.5rem;
+        height: 60%;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    section .screen .content h2 {
+        font-size: 2.4rem;
+    }
+
+    section .screen .content h6 {
+        font-size: 0.9rem;
+        font-weight: 200;
+    }
+
+    .content.light .button {
+        width: 45%;
+        height: 70%;
+        font-size: 1rem;
+    }
+
+    .content.green .button {
+        width: 45%;
+        height: 70%;
+        font-size: 1.2rem;
+    }
+
+    .content.dark .button {
+        width: 45%;
+        height: 70%;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    section .screen:nth-child(3) {
+        background: url(images/sitebg-mobile.jpg) no-repeat center;
+    }
+
+    section .screen .content h2 {
+        font-size: 2.2rem;
+    }
+
+    section .screen .content h6 {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 900px) and (orientation: landscape) {
+    section {
+        flex-direction: row;
+    }
+}

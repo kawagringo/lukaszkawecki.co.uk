@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!-- Global site tag (gtag.js) - Google Analytics -->
+     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174016998-1"></script>
+     <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', 'UA-174016998-1');
+     </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta hhtp-equiv="X-UA-Compatible" content="ie-edge">
+    <link rel="shortcut icon" href="icon.png">
+    <title>Lukasz Kawecki Software & Web Developer</title>
+    <meta name="description" content= "Lukasz Kawecki Junior Software Developer, Web Developer, UI, UX Designer, BIS, Mapper, C#,  Freelance, Leicester, Leicestershire, United Kingdom, kawagringo" />
+    <meta name="robots" content= "index, follow">
+    <meta name="keywords" content="Lukasz Kawecki, Software, Developer, Engineer, Web, UI, UX, Web Design, Designer, C#, C sharp, Mapper, BIS, Computer Science, javascript, php, seo, Leicester, UK, Polish" />
+    <meta name="language" content="English">
+    <meta name="author" content="Lukasz Kawecki">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        var vader = new Audio() ;
+        vader.src = "vader.mp3";
+        var jedi = new Audio() ;
+        jedi.src = "jedi.mp3";
+        var saber = new Audio() ;
+        saber.src = "saber.mp3";
+    </script>
+</head>
+<body>
+    <section class="split">
+        <div class="screen one">
+            <a href="javascript:delay('light/index.html')" onmousedown="jedi.play() "><div class="menu-toggler">
+                <div class="bar half start"></div>
+                <div class="bar"></div>
+                <div class="bar half end"></div>
+            </div></a>
+            <div class="content light">
+                <h2>Lukasz Kawecki</h2>
+                <h6 class="line anim-type">Junior Software Developer & UI/UX Designer</h6>
+                <a href="javascript:delay('light/index.html')" class="button" onmousedown="jedi.play() ">The Light Side</a>
+            </div>
+        </div>
+        <div class="screen two">
+            <a href="javascript:delay('green/index.html')" onmousedown="saber.play() "><div class="menu-toggler">
+                <div class="bar half start"></div>
+                <div class="bar"></div>
+                <div class="bar half end"></div>
+            </div></a>
+            <div class="content green">
+                <h2>Lukasz Kawecki</h2>
+                <h6 class="line anim-type">Junior Software Developer & UI/UX Designer</h6>
+                <a href="javascript:delay('green/index.html')" class="button" onmousedown="saber.play() ">The Green Neon</a>
+            </div>
+        </div>
+        <div class="screen thre">
+            <a href="javascript:delay('dark/index.html')" onmousedown="vader.play() "><div class="menu-toggler">
+                <div class="bar half start"></div>
+                <div class="bar"></div>
+                <div class="bar half end"></div>
+            </div></a>
+            <div class="content dark">
+                <h2>Lukasz Kawecki</h2>
+                <h6 class="line anim-type">Junior Software Developer & UI/UX Designer</h6>
+                <a href="javascript:delay('dark/index.html')" class="button" onmousedown="vader.play() ">The Dark Side</a>
+            </div>
+        </div>
+    </section>
+    <!--GSAP Animations-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.1/gsap.min.js"></script>
+    <script>
+    function delay (URL) {
+        setTimeout( function() { window.location = URL }, 2500 );
+    }
+    </script>
+    <!--Main Java file-->
+    <script src="main.js"></script>
+
+    <!--Cookies-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js" data-cfasync="false"></script>
+    <script>
+    window.addEventListener('load', function(){
+    window.cookieconsent.initialise({
+    revokeBtn: "<div class='cc-revoke'></div>",
+    type: "opt-in",
+    position: "bottom-right",
+    theme: "classic",
+    palette: {
+        popup: {
+            background: "#445",
+            text: "#eee"
+            },
+        button: {
+            background: "#9f5",
+            text: "#000"
+            }
+        },
+    content: {
+        message: "Welcome on Lukasz Kawecki personal website, to ensure you get the best experience on my website, please allow cookies.",
+        link: "Сookie policy",
+        href: "https://2gdpr.com/cookies"
+        },
+        onInitialise: function(status) {
+        if(status == cookieconsent.status.allow) myScripts();
+        },
+        onStatusChange: function(status) {
+        if (this.hasConsented()) myScripts();
+        }
+    })
+    });
+
+    function myScripts() {
+    // Google Analytics, you need to change 'UA-00000000-1' to your ID
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-174016998-1', 'auto');
+        ga('send', 'pageview');
+    }
+    </script>
+</body>
+</html>
